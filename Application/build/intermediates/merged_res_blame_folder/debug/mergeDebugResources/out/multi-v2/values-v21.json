@@ -1,0 +1,83 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.android.bluetoothadvertisements.Application-mergeDebugResources-4:/values-v21/values-v21.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\weeks\\.gradle\\caches\\9.7.1\\transforms\\d6e77901167a513bc2e3a4d6cb7c3a9d\\transformed\\support-compat-28.0.0\\res\\values-v21\\values-v21.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,159,223,290,354,470,596,722,850,1022",
+                        "endLines": "2,3,4,5,6,7,8,9,12,17",
+                        "endColumns": "103,63,66,63,115,125,125,127,12,12",
+                        "endOffsets": "154,218,285,349,465,591,717,845,1017,1355"
+                    },
+                    "to": {
+                        "startLines": "4,6,7,8,9,10,17,21,30,33",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "153,308,372,439,503,619,1076,1370,1981,2153",
+                        "endLines": "4,6,7,8,9,10,17,21,32,37",
+                        "endColumns": "103,63,66,63,115,125,125,127,12,12",
+                        "endOffsets": "252,367,434,498,614,740,1197,1493,2148,2486"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\weeks\\.gradle\\caches\\9.7.1\\transforms\\180c108531ab135ca23eb208703864c0\\transformed\\support-media-compat-28.0.0\\res\\values-v21\\values-v21.xml",
+                    "from": {
+                        "startLines": "2,5,8,11",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,223,386,554",
+                        "endLines": "4,7,10,13",
+                        "endColumns": "12,12,12,12",
+                        "endOffsets": "218,381,549,716"
+                    },
+                    "to": {
+                        "startLines": "11,14,18,22",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "745,913,1202,1498",
+                        "endLines": "13,16,20,24",
+                        "endColumns": "12,12,12,12",
+                        "endOffsets": "908,1071,1365,1660"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\weeks\\AndroidStudioProjects\\BluetoothAdvertisements\\Application\\src\\main\\res\\values-v21\\base-template-styles.xml",
+                    "from": {
+                        "startLines": "20",
+                        "startColumns": "4",
+                        "startOffsets": "677",
+                        "endLines": "24",
+                        "endColumns": "12",
+                        "endOffsets": "988"
+                    },
+                    "to": {
+                        "startLines": "25",
+                        "startColumns": "4",
+                        "startOffsets": "1665",
+                        "endLines": "29",
+                        "endColumns": "12",
+                        "endOffsets": "1976"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\weeks\\AndroidStudioProjects\\BluetoothAdvertisements\\Application\\src\\main\\res\\values-v21\\base-colors.xml",
+                    "from": {
+                        "startLines": "19,20,21",
+                        "startColumns": "8,8,8",
+                        "startOffsets": "652,703,758",
+                        "endColumns": "50,54,54",
+                        "endOffsets": "694,749,804"
+                    },
+                    "to": {
+                        "startLines": "2,3,5",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,102,257",
+                        "endColumns": "46,50,50",
+                        "endOffsets": "97,148,303"
+                    }
+                }
+            ]
+        }
+    ]
+}

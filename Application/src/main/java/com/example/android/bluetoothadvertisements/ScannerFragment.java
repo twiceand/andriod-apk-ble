@@ -17,12 +17,20 @@
 package com.example.android.bluetoothadvertisements;
 
 import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothGatt;
+import android.bluetooth.BluetoothGattCallback;
+import android.bluetooth.BluetoothProfile;
 import android.bluetooth.BluetoothManager;
 import android.bluetooth.le.BluetoothLeScanner;
 import android.bluetooth.le.ScanCallback;
 import android.bluetooth.le.ScanFilter;
 import android.bluetooth.le.ScanResult;
 import android.bluetooth.le.ScanSettings;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.ListFragment;
@@ -61,6 +69,31 @@ public class ScannerFragment extends ListFragment {
     private ScanResultAdapter mAdapter;
 
     private Handler mHandler;
+
+    private BluetoothDevice mPendingDevice;
+
+    private BluetoothGatt mBluetoothGatt;
+
+    private final BroadcastReceiver mBondStateReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            BluetoothDevice device = (BluetoothDevice) intent.getParcelableExtra(
+                    BluetoothDevice.EXTRA_DEVICE);
+            if (mPendingDevice == null || device == null
+                    || !mPendingDevice.getAddress().equals(device.getAddress())) {
+                return;
+            }
+
+            int bondState = intent.getIntExtra(BluetoothDevice.EXTRA_BOND_STATE,
+                    BluetoothDevice.ERROR);
+            if (bondState == BluetoothDevice.BOND_BONDED) {
+                showMessage(R.string.pairing_succeeded);
+            } else if (bondState == BluetoothDevice.BOND_NONE) {
+                showMessage(R.string.pairing_failed);
+                mPendingDevice = null;
+            }
+        }
+    };
 
     /**
      * Must be called after object creation by MainActivity.
@@ -121,6 +154,138 @@ public class ScannerFragment extends ListFragment {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        getActivity().registerReceiver(mBondStateReceiver,
+                new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED));
+    }
+
+    @Override
+    public void onStop() {
+        getActivity().unregisterReceiver(mBondStateReceiver);
+        super.onStop();
+    }
+
+    @Override
+    public void onListItemClick(android.widget.ListView listView, View view, int position, long id) {
+        super.onListItemClick(listView, view, position, id);
+        if (mPendingDevice != null || mBluetoothGatt != null) {
+            showMessage(R.string.connection_in_progress);
+            return;
+        }
+
+        stopScanning();
+        BluetoothDevice device = ((ScanResult) mAdapter.getItem(position)).getDevice();
+        mPendingDevice = device;
+        try {
+            showMessage(R.string.connecting_to_device);
+            connectToDevice(device);
+        } catch (SecurityException exception) {
+            mPendingDevice = null;
+            showMessage(R.string.bluetooth_permission_required);
+        }
+    }
+
+    private void connectToDevice(BluetoothDevice device) {
+        if (mBluetoothGatt != null) {
+            return;
+        }
+        try {
+            showMessage(R.string.connecting_to_device);
+            mBluetoothGatt = device.connectGatt(getActivity(), false, new BluetoothGattCallback() {
+                @Override
+                public void onConnectionStateChange(BluetoothGatt gatt, int status,
+                                                    int newState) {
+                    if (status == BluetoothGatt.GATT_SUCCESS
+                            && newState == BluetoothProfile.STATE_CONNECTED) {
+                        showMessage(R.string.device_connected);
+                        requestPairing(gatt.getDevice());
+                    } else if (status != BluetoothGatt.GATT_SUCCESS
+                            || newState == BluetoothProfile.STATE_DISCONNECTED) {
+                        if (status == BluetoothGatt.GATT_SUCCESS) {
+                            showMessage(R.string.device_disconnected);
+                        } else {
+                            showMessage(R.string.connection_failed, status);
+                        }
+                        gatt.close();
+                        if (mBluetoothGatt == gatt) {
+                            mBluetoothGatt = null;
+                            mPendingDevice = null;
+                        }
+                    }
+                }
+            });
+            if (mBluetoothGatt == null) {
+                mPendingDevice = null;
+                showMessage(R.string.connection_failed_to_start);
+            }
+        } catch (SecurityException exception) {
+            mPendingDevice = null;
+            showMessage(R.string.bluetooth_permission_required);
+        }
+    }
+
+    private void requestPairing(BluetoothDevice device) {
+        try {
+            if (device.getBondState() == BluetoothDevice.BOND_BONDED) {
+                showMessage(R.string.device_already_paired);
+            } else if (device.getBondState() == BluetoothDevice.BOND_BONDING
+                    || device.createBond()) {
+                showMessage(R.string.pairing_requested);
+            } else {
+                showMessage(R.string.pairing_failed);
+                mPendingDevice = null;
+            }
+        } catch (SecurityException exception) {
+            showMessage(R.string.bluetooth_permission_required);
+            mPendingDevice = null;
+        }
+    }
+
+    private void showMessage(final int messageId) {
+        if (getActivity() == null) {
+            return;
+        }
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (getActivity() != null) {
+                    Toast.makeText(getActivity(), messageId, Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+    private void showMessage(final String message) {
+        if (getActivity() == null) {
+            return;
+        }
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (getActivity() != null) {
+                    Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+    private void showMessage(final int messageId, final int argument) {
+        if (getActivity() == null) {
+            return;
+        }
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (getActivity() != null) {
+                    Toast.makeText(getActivity(), getString(messageId, argument),
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.scanner_menu, menu);
@@ -128,14 +293,11 @@ public class ScannerFragment extends ListFragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()) {
-            case R.id.refresh:
-                startScanning();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.refresh) {
+            startScanning();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     /**
@@ -240,5 +402,14 @@ public class ScannerFragment extends ListFragment {
     public void onPause() {
         stopScanning();
         super.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mBluetoothGatt != null) {
+            mBluetoothGatt.close();
+            mBluetoothGatt = null;
+        }
+        super.onDestroy();
     }
 }

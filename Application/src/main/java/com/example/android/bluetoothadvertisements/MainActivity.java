@@ -99,7 +99,24 @@ public class MainActivity extends FragmentActivity {
     }
 
     private void prepareBluetoothFeatures() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+        if (Build.VERSION.SDK_INT >= 31) {
+            String[] permissions = new String[] {
+                    "android.permission.BLUETOOTH_SCAN",
+                    "android.permission.BLUETOOTH_CONNECT"
+            };
+            boolean allGranted = true;
+            for (String permission : permissions) {
+                if (ContextCompat.checkSelfPermission(this, permission)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    allGranted = false;
+                    break;
+                }
+            }
+            if (!allGranted) {
+                requestPermissions(permissions, REQUEST_LOCATION_PERMISSION);
+                return;
+            }
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
                 && ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[] { Manifest.permission.ACCESS_FINE_LOCATION },
@@ -113,10 +130,16 @@ public class MainActivity extends FragmentActivity {
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == REQUEST_LOCATION_PERMISSION) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            boolean allGranted = grantResults.length > 0;
+            for (int grantResult : grantResults) {
+                allGranted &= grantResult == PackageManager.PERMISSION_GRANTED;
+            }
+            if (allGranted) {
                 setupFragments();
             } else {
-                showErrorText(R.string.location_permission_required);
+                showErrorText(Build.VERSION.SDK_INT >= 31
+                        ? R.string.bluetooth_permission_required
+                        : R.string.location_permission_required);
             }
         }
     }
