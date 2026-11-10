@@ -2,6 +2,8 @@ R_DEF: Internal format may change without notice
 local
 color colorPrimary
 color colorPrimaryDark
+color scan_start
+color scan_stop
 color textColorPrimary
 dimen horizontal_page_margin
 dimen margin_huge
@@ -14,17 +16,25 @@ drawable ic_action_refresh
 drawable ic_launcher
 drawable tile
 id advertise_switch
-id advertiser_fragment_container
+id bluetooth_status
+id clear_logs
+id connection_state
 id device_address
+id device_empty
+id device_list
 id device_name
 id error_textview
-id last_seen
+id log_empty
+id log_list
 id refresh
-id sample_main_layout
+id scan_button
+id scan_progress
+id scan_status
 id scanner_fragment_container
 id signal_strength
 layout activity_main
 layout fragment_advertiser
+layout fragment_scanner
 layout listitem_scanresult
 menu scanner_menu
 string activity_main_title

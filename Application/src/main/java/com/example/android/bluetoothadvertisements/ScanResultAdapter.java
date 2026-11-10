@@ -16,9 +16,7 @@
 
 package com.example.android.bluetoothadvertisements;
 
-import android.bluetooth.le.ScanResult;
 import android.content.Context;
-import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,144 +24,78 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
-/**
- * Holds and displays {@link ScanResult}s, used by {@link ScannerFragment}.
- */
 public class ScanResultAdapter extends BaseAdapter {
+    private final LayoutInflater inflater;
+    private final ArrayList<DiscoveredDevice> devices = new ArrayList<>();
 
-    private ArrayList<ScanResult> mArrayList;
+    ScanResultAdapter(Context context) {
+        inflater = LayoutInflater.from(context);
+    }
 
-    private Context mContext;
-
-    private LayoutInflater mInflater;
-
-    ScanResultAdapter(Context context, LayoutInflater inflater) {
-        super();
-        mContext = context;
-        mInflater = inflater;
-        mArrayList = new ArrayList<>();
+    void setDevices(ArrayList<DiscoveredDevice> newDevices) {
+        devices.clear();
+        devices.addAll(newDevices);
+        notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        return mArrayList.size();
+        return devices.size();
     }
 
     @Override
-    public Object getItem(int position) {
-        return mArrayList.get(position);
+    public DiscoveredDevice getItem(int position) {
+        return devices.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return mArrayList.get(position).getDevice().getAddress().hashCode();
+        return devices.get(position).id.hashCode();
     }
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
-
-        // Reuse an old view if we can, otherwise create a new one.
         if (view == null) {
-            view = mInflater.inflate(R.layout.listitem_scanresult, null);
+            view = inflater.inflate(R.layout.listitem_scanresult, parent, false);
         }
 
-        TextView deviceNameView = (TextView) view.findViewById(R.id.device_name);
-        TextView deviceAddressView = (TextView) view.findViewById(R.id.device_address);
-        TextView lastSeenView = (TextView) view.findViewById(R.id.last_seen);
-        TextView signalStrengthView = (TextView) view.findViewById(R.id.signal_strength);
-
-        ScanResult scanResult = mArrayList.get(position);
-
-        String name = scanResult.getDevice().getName();
-        if (name == null) {
-            name = mContext.getResources().getString(R.string.no_name);
-        }
-        deviceNameView.setText(name);
-        deviceAddressView.setText(scanResult.getDevice().getAddress());
-        lastSeenView.setText(getTimeSinceString(mContext, scanResult.getTimestampNanos()));
-        signalStrengthView.setText(mContext.getString(R.string.signal_strength, scanResult.getRssi()));
-
+        DiscoveredDevice device = devices.get(position);
+        ((TextView) view.findViewById(R.id.device_name)).setText(device.name);
+        ((TextView) view.findViewById(R.id.device_address)).setText(device.id);
+        ((TextView) view.findViewById(R.id.signal_strength))
+                .setText(device.rssi + " dBm · 最近发现 " + timeSince(device.lastSeen));
+        ((TextView) view.findViewById(R.id.connection_state))
+                .setText(connectionDescription(device));
         return view;
     }
 
-    /**
-     * Search the adapter for an existing device address and return it, otherwise return -1.
-     */
-    private int getPosition(String address) {
-        int position = -1;
-        for (int i = 0; i < mArrayList.size(); i++) {
-            if (mArrayList.get(i).getDevice().getAddress().equals(address)) {
-                position = i;
-                break;
-            }
+    private String connectionDescription(DiscoveredDevice device) {
+        switch (device.connectionState) {
+            case CONNECTING:
+                return "连接中 · 点击取消";
+            case CONNECTED:
+                return "已连接 · 点击断开";
+            case DISCONNECTING:
+                return "正在断开";
+            case DISCONNECTED:
+            default:
+                return Boolean.FALSE.equals(device.connectable) ? "不可连接" : "点击连接";
         }
-        return position;
     }
 
-
-    /**
-     * Add a ScanResult item to the adapter if a result from that device isn't already present.
-     * Otherwise updates the existing position with the new ScanResult.
-     */
-    public void add(ScanResult scanResult) {
-
-        int existingPosition = getPosition(scanResult.getDevice().getAddress());
-
-        if (existingPosition >= 0) {
-            // Device is already in list, update its record.
-            mArrayList.set(existingPosition, scanResult);
+    private String timeSince(long timestamp) {
+        long seconds = Math.max(0, (System.currentTimeMillis() - timestamp) / 1000);
+        if (seconds < 5) {
+            return "刚刚";
+        } else if (seconds < 60) {
+            return seconds + " 秒前";
+        } else if (seconds < 3600) {
+            long minutes = seconds / 60;
+            return minutes + " 分钟前";
         } else {
-            // Add new Device's ScanResult to list.
-            mArrayList.add(scanResult);
+            long hours = seconds / 3600;
+            return hours + " 小时前";
         }
-    }
-
-    /**
-     * Clear out the adapter.
-     */
-    public void clear() {
-        mArrayList.clear();
-    }
-
-    /**
-     * Takes in a number of nanoseconds and returns a human-readable string giving a vague
-     * description of how long ago that was.
-     */
-    public static String getTimeSinceString(Context context, long timeNanoseconds) {
-        String lastSeenText = context.getResources().getString(R.string.last_seen) + " ";
-
-        long timeSince = SystemClock.elapsedRealtimeNanos() - timeNanoseconds;
-        long secondsSince = TimeUnit.SECONDS.convert(timeSince, TimeUnit.NANOSECONDS);
-
-        if (secondsSince < 5) {
-            lastSeenText += context.getResources().getString(R.string.just_now);
-        } else if (secondsSince < 60) {
-            lastSeenText += secondsSince + " " + context.getResources()
-                    .getString(R.string.seconds_ago);
-        } else {
-            long minutesSince = TimeUnit.MINUTES.convert(secondsSince, TimeUnit.SECONDS);
-            if (minutesSince < 60) {
-                if (minutesSince == 1) {
-                    lastSeenText += minutesSince + " " + context.getResources()
-                            .getString(R.string.minute_ago);
-                } else {
-                    lastSeenText += minutesSince + " " + context.getResources()
-                            .getString(R.string.minutes_ago);
-                }
-            } else {
-                long hoursSince = TimeUnit.HOURS.convert(minutesSince, TimeUnit.MINUTES);
-                if (hoursSince == 1) {
-                    lastSeenText += hoursSince + " " + context.getResources()
-                            .getString(R.string.hour_ago);
-                } else {
-                    lastSeenText += hoursSince + " " + context.getResources()
-                            .getString(R.string.hours_ago);
-                }
-            }
-        }
-
-        return lastSeenText;
     }
 }

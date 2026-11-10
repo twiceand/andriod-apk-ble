@@ -46,29 +46,13 @@ public class MainActivity extends FragmentActivity {
         setTitle(R.string.activity_main_title);
 
         if (savedInstanceState == null) {
-
             BluetoothManager bluetoothManager =
                     (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
             mBluetoothAdapter = bluetoothManager == null ? null : bluetoothManager.getAdapter();
-
-            // Is Bluetooth supported on this device?
-            if (mBluetoothAdapter != null) {
-
-                // Is Bluetooth turned on?
-                if (mBluetoothAdapter.isEnabled()) {
-
-                    // Are Bluetooth Advertisements supported on this device?
-                    prepareBluetoothFeatures();
-                } else {
-
-                    // Prompt user to turn on Bluetooth (logic continues in onActivityResult()).
-                    Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                    startActivityForResult(enableBtIntent, Constants.REQUEST_ENABLE_BT);
-                }
-            } else {
-
-                // Bluetooth is not supported.
+            if (mBluetoothAdapter == null) {
                 showErrorText(R.string.bt_not_supported);
+            } else {
+                prepareBluetoothFeatures();
             }
         }
     }
@@ -80,13 +64,8 @@ public class MainActivity extends FragmentActivity {
             case Constants.REQUEST_ENABLE_BT:
 
                 if (resultCode == RESULT_OK) {
-
-                    // Bluetooth is now Enabled, are Bluetooth Advertisements supported on
-                    // this device?
                     prepareBluetoothFeatures();
                 } else {
-
-                    // User declined to enable Bluetooth, exit the app.
                     Toast.makeText(this, R.string.bt_not_enabled_leaving,
                             Toast.LENGTH_SHORT).show();
                     finish();
@@ -102,7 +81,8 @@ public class MainActivity extends FragmentActivity {
         if (Build.VERSION.SDK_INT >= 31) {
             String[] permissions = new String[] {
                     "android.permission.BLUETOOTH_SCAN",
-                    "android.permission.BLUETOOTH_CONNECT"
+                    "android.permission.BLUETOOTH_CONNECT",
+                    Manifest.permission.ACCESS_FINE_LOCATION
             };
             boolean allGranted = true;
             for (String permission : permissions) {
@@ -123,6 +103,16 @@ public class MainActivity extends FragmentActivity {
                     REQUEST_LOCATION_PERMISSION);
             return;
         }
+        try {
+            if (!mBluetoothAdapter.isEnabled()) {
+                Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                startActivityForResult(enableBtIntent, Constants.REQUEST_ENABLE_BT);
+                return;
+            }
+        } catch (SecurityException exception) {
+            showErrorText(R.string.bluetooth_permission_required);
+            return;
+        }
         setupFragments();
     }
 
@@ -135,7 +125,7 @@ public class MainActivity extends FragmentActivity {
                 allGranted &= grantResult == PackageManager.PERMISSION_GRANTED;
             }
             if (allGranted) {
-                setupFragments();
+                prepareBluetoothFeatures();
             } else {
                 showErrorText(Build.VERSION.SDK_INT >= 31
                         ? R.string.bluetooth_permission_required
@@ -148,13 +138,8 @@ public class MainActivity extends FragmentActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         ScannerFragment scannerFragment = new ScannerFragment();
-        // Fragments can't access system services directly, so pass it the BluetoothAdapter
         scannerFragment.setBluetoothAdapter(mBluetoothAdapter);
         transaction.replace(R.id.scanner_fragment_container, scannerFragment);
-
-        AdvertiserFragment advertiserFragment = new AdvertiserFragment();
-        transaction.replace(R.id.advertiser_fragment_container, advertiserFragment);
-
         transaction.commit();
     }
 

@@ -4,7 +4,7 @@
             "outputFile": "com.example.android.bluetoothadvertisements.Application-mergeDebugResources-4:/values-v11/values-v11.xml",
             "map": [
                 {
-                    "source": "/workspaces/andriod-apk-ble/Application/src/main/res/values-v11/template-styles.xml",
+                    "source": "C:\\Users\\yuwell\\Desktop\\andriod-apk-ble-main\\andriod-apk-ble-main\\Application\\src\\main\\res\\values-v11\\template-styles.xml",
                     "from": {
                         "startLines": "19",
                         "startColumns": "4",

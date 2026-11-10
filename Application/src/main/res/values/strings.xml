@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="bt_not_enabled_leaving">未开启蓝牙，应用将退出。</string>
-    <string name="activity_main_title">附近的蓝牙设备</string>
+    <string name="activity_main_title">蓝牙扫描</string>
     <string name="broadcast_device">广播本机</string>
     <string name="bt_not_supported">此设备不支持蓝牙。</string>
     <string name="bt_ads_not_supported">此设备不支持蓝牙广播。</string>
