@@ -4,7 +4,7 @@
             "outputFile": "com.example.android.bluetoothadvertisements.Application-mergeDebugResources-4:/values-v21/values-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\yuwell\\Desktop\\andriod-apk-ble-main\\andriod-apk-ble-main\\Application\\src\\main\\res\\values-v21\\base-colors.xml",
+                    "source": "/workspaces/andriod-apk-ble/Application/src/main/res/values-v21/base-colors.xml",
                     "from": {
                         "startLines": "19,20,21",
                         "startColumns": "8,8,8",
@@ -21,7 +21,26 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\yuwell\\.gradle\\caches\\9.7.1\\transforms\\d6e77901167a513bc2e3a4d6cb7c3a9d\\transformed\\support-compat-28.0.0\\res\\values-v21\\values-v21.xml",
+                    "source": "/workspaces/andriod-apk-ble/Application/src/main/res/values-v21/base-template-styles.xml",
+                    "from": {
+                        "startLines": "20",
+                        "startColumns": "4",
+                        "startOffsets": "677",
+                        "endLines": "24",
+                        "endColumns": "12",
+                        "endOffsets": "988"
+                    },
+                    "to": {
+                        "startLines": "25",
+                        "startColumns": "4",
+                        "startOffsets": "1665",
+                        "endLines": "29",
+                        "endColumns": "12",
+                        "endOffsets": "1976"
+                    }
+                },
+                {
+                    "source": "/home/codespace/.gradle/caches/9.7.1/transforms/d6e77901167a513bc2e3a4d6cb7c3a9d/transformed/support-compat-28.0.0/res/values-v21/values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -40,7 +59,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\yuwell\\.gradle\\caches\\9.7.1\\transforms\\180c108531ab135ca23eb208703864c0\\transformed\\support-media-compat-28.0.0\\res\\values-v21\\values-v21.xml",
+                    "source": "/home/codespace/.gradle/caches/9.7.1/transforms/180c108531ab135ca23eb208703864c0/transformed/support-media-compat-28.0.0/res/values-v21/values-v21.xml",
                     "from": {
                         "startLines": "2,5,8,11",
                         "startColumns": "4,4,4,4",
@@ -56,25 +75,6 @@
                         "endLines": "13,16,20,24",
                         "endColumns": "12,12,12,12",
                         "endOffsets": "908,1071,1365,1660"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\yuwell\\Desktop\\andriod-apk-ble-main\\andriod-apk-ble-main\\Application\\src\\main\\res\\values-v21\\base-template-styles.xml",
-                    "from": {
-                        "startLines": "20",
-                        "startColumns": "4",
-                        "startOffsets": "677",
-                        "endLines": "24",
-                        "endColumns": "12",
-                        "endOffsets": "988"
-                    },
-                    "to": {
-                        "startLines": "25",
-                        "startColumns": "4",
-                        "startOffsets": "1665",
-                        "endLines": "29",
-                        "endColumns": "12",
-                        "endOffsets": "1976"
                     }
                 }
             ]

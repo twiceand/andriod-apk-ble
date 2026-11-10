@@ -1,176 +1,176 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:17:1-53:12
-INJECTED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:17:1-53:12
-INJECTED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:17:1-53:12
-INJECTED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:17:1-53:12
-MERGED from [com.android.support:support-v4:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\016df62262268f9133a655619ddfbcf8\transformed\support-v4-28.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-media-compat:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\180c108531ab135ca23eb208703864c0\transformed\support-media-compat-28.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\8f34d3c607ac1c7eef8b3f1020d83c95\transformed\support-fragment-28.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\05c9deb4a1c08dea1b0514c10ae9350d\transformed\support-core-ui-28.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\8cc871aab0a70e7593ed9ffc8c205696\transformed\support-core-utils-28.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:loader:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\102798a274086d2148d78f3109a9d10c\transformed\loader-28.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:viewpager:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\2f4e98590812838fc5061b813e66f68b\transformed\viewpager-28.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\0a2c8ee4c4751eeb1a5b1493fa1c2a18\transformed\coordinatorlayout-28.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\abd137af68b4341b8ce96662a703a80e\transformed\drawerlayout-28.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\33ff133ad63535c4b51ac6f45fa87626\transformed\slidingpanelayout-28.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:customview:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\c5c770ca10b48e0b219ccc4098d9ab73\transformed\customview-28.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\d737c6a46e586e7f5f9169b062ddce8d\transformed\swiperefreshlayout-28.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\85dc63a2863842553073a52f67d6b755\transformed\asynclayoutinflater-28.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\d6e77901167a513bc2e3a4d6cb7c3a9d\transformed\support-compat-28.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\3f18b3f3d3b33f8828f741cfd9616820\transformed\versionedparcelable-28.0.0\AndroidManifest.xml:17:1-25:12
-MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\d415cb50bee612673942ae79fe6e9028\transformed\runtime-1.1.1\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:documentfile:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\4aa75a569e4f4190ba0bffc25facc09d\transformed\documentfile-28.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\ca6118f7585257db07c952356f61970a\transformed\localbroadcastmanager-28.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:print:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\7e43025778ff2599736e0cc6acbd09bc\transformed\print-28.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:interpolator:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\16e1cc338e3aab10dac9344cba0d0332\transformed\interpolator-28.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\285c1a7315c3bf5a94f2e0ff16687bfe\transformed\cursoradapter-28.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\9767ed0c88fc750a9d0f57992c1a3958\transformed\viewmodel-1.1.1\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\9be105d99cfcd028bc58d55b6f78adb8\transformed\livedata-1.1.1\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\fdc9bfc80e1707c9ec676288b9f6cbf8\transformed\livedata-core-1.1.1\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.core:runtime:1.1.1] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\fe8e84acdba959f0d4ddcf6993f75b4a\transformed\runtime-1.1.1\AndroidManifest.xml:17:1-22:12
+ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:17:1-53:12
+INJECTED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:17:1-53:12
+INJECTED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:17:1-53:12
+INJECTED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:17:1-53:12
+MERGED from [com.android.support:support-v4:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/016df62262268f9133a655619ddfbcf8/transformed/support-v4-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/180c108531ab135ca23eb208703864c0/transformed/support-media-compat-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/8f34d3c607ac1c7eef8b3f1020d83c95/transformed/support-fragment-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/05c9deb4a1c08dea1b0514c10ae9350d/transformed/support-core-ui-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/8cc871aab0a70e7593ed9ffc8c205696/transformed/support-core-utils-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/102798a274086d2148d78f3109a9d10c/transformed/loader-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/2f4e98590812838fc5061b813e66f68b/transformed/viewpager-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/0a2c8ee4c4751eeb1a5b1493fa1c2a18/transformed/coordinatorlayout-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/abd137af68b4341b8ce96662a703a80e/transformed/drawerlayout-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/33ff133ad63535c4b51ac6f45fa87626/transformed/slidingpanelayout-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/c5c770ca10b48e0b219ccc4098d9ab73/transformed/customview-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/d737c6a46e586e7f5f9169b062ddce8d/transformed/swiperefreshlayout-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/85dc63a2863842553073a52f67d6b755/transformed/asynclayoutinflater-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/d6e77901167a513bc2e3a4d6cb7c3a9d/transformed/support-compat-28.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/3f18b3f3d3b33f8828f741cfd9616820/transformed/versionedparcelable-28.0.0/AndroidManifest.xml:17:1-25:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/codespace/.gradle/caches/9.7.1/transforms/d415cb50bee612673942ae79fe6e9028/transformed/runtime-1.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/4aa75a569e4f4190ba0bffc25facc09d/transformed/documentfile-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/ca6118f7585257db07c952356f61970a/transformed/localbroadcastmanager-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/7e43025778ff2599736e0cc6acbd09bc/transformed/print-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/16e1cc338e3aab10dac9344cba0d0332/transformed/interpolator-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/285c1a7315c3bf5a94f2e0ff16687bfe/transformed/cursoradapter-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/codespace/.gradle/caches/9.7.1/transforms/9767ed0c88fc750a9d0f57992c1a3958/transformed/viewmodel-1.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/codespace/.gradle/caches/9.7.1/transforms/9be105d99cfcd028bc58d55b6f78adb8/transformed/livedata-1.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/codespace/.gradle/caches/9.7.1/transforms/fdc9bfc80e1707c9ec676288b9f6cbf8/transformed/livedata-core-1.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /home/codespace/.gradle/caches/9.7.1/transforms/fe8e84acdba959f0d4ddcf6993f75b4a/transformed/runtime-1.1.1/AndroidManifest.xml:17:1-22:12
 	package
-		INJECTED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml
+		INJECTED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml
+		INJECTED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml
+		INJECTED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:17:11-69
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:17:11-69
 uses-feature#android.hardware.bluetooth
-ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:19:5-88
+ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:19:5-88
 	android:required
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:19:61-85
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:19:61-85
 	android:name
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:19:19-60
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:19:19-60
 uses-feature#android.hardware.bluetooth_le
-ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:20:5-91
+ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:20:5-91
 	android:required
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:20:64-88
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:20:64-88
 	android:name
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:20:19-63
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:20:19-63
 uses-permission#android.permission.BLUETOOTH_ADMIN
-ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:22:5-23:38
+ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:22:5-23:38
 	android:maxSdkVersion
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:23:9-35
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:23:9-35
 	android:name
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:22:22-71
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:22:22-71
 uses-permission#android.permission.BLUETOOTH
-ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:24:5-25:38
+ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:24:5-25:38
 	android:maxSdkVersion
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:25:9-35
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:25:9-35
 	android:name
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:24:22-65
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:24:22-65
 uses-permission#android.permission.BLUETOOTH_SCAN
-ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:26:5-73
+ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:26:5-73
 	android:name
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:26:22-70
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:26:22-70
 uses-permission#android.permission.BLUETOOTH_CONNECT
-ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:27:5-76
+ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:27:5-76
 	android:name
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:27:22-73
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:27:22-73
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:28:5-79
+ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:28:5-79
 	android:name
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:28:22-76
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:28:22-76
 application
-ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:30:5-51:19
-INJECTED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:30:5-51:19
-MERGED from [com.android.support:support-compat:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\d6e77901167a513bc2e3a4d6cb7c3a9d\transformed\support-compat-28.0.0\AndroidManifest.xml:22:5-94
-MERGED from [com.android.support:support-compat:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\d6e77901167a513bc2e3a4d6cb7c3a9d\transformed\support-compat-28.0.0\AndroidManifest.xml:22:5-94
-MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\3f18b3f3d3b33f8828f741cfd9616820\transformed\versionedparcelable-28.0.0\AndroidManifest.xml:22:5-23:19
-MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\3f18b3f3d3b33f8828f741cfd9616820\transformed\versionedparcelable-28.0.0\AndroidManifest.xml:22:5-23:19
+ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:30:5-51:19
+INJECTED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:30:5-51:19
+MERGED from [com.android.support:support-compat:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/d6e77901167a513bc2e3a4d6cb7c3a9d/transformed/support-compat-28.0.0/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/d6e77901167a513bc2e3a4d6cb7c3a9d/transformed/support-compat-28.0.0/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/3f18b3f3d3b33f8828f741cfd9616820/transformed/versionedparcelable-28.0.0/AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/3f18b3f3d3b33f8828f741cfd9616820/transformed/versionedparcelable-28.0.0/AndroidManifest.xml:22:5-23:19
 	android:extractNativeLibs
-		INJECTED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml
+		INJECTED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml
 	android:appComponentFactory
-		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\d6e77901167a513bc2e3a4d6cb7c3a9d\transformed\support-compat-28.0.0\AndroidManifest.xml:22:18-91
+		ADDED from [com.android.support:support-compat:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/d6e77901167a513bc2e3a4d6cb7c3a9d/transformed/support-compat-28.0.0/AndroidManifest.xml:22:18-91
 	android:label
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:33:9-41
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:33:9-41
 	android:icon
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:32:9-45
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:32:9-45
 	android:allowBackup
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:31:9-35
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:31:9-35
 	android:theme
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:34:9-40
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:34:9-40
 activity#com.example.android.bluetoothadvertisements.MainActivity
-ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:35:9-42:20
+ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:35:9-42:20
 	android:label
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:37:13-45
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:37:13-45
 	android:name
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:36:13-41
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:36:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:38:13-41:29
+ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:38:13-41:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:39:17-69
+ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:39:17-69
 	android:name
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:39:25-66
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:39:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:40:17-77
+ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:40:17-77
 	android:name
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:40:27-74
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:40:27-74
 service#com.example.android.bluetoothadvertisements.AdvertiserService
-ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:46:9-50:19
+ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:46:9-50:19
 	android:enabled
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:48:13-35
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:48:13-35
 	android:exported
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:49:13-37
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:49:13-37
 	android:name
-		ADDED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml:47:13-46
+		ADDED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml:47:13-46
 uses-sdk
-INJECTED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml
-INJECTED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml
-MERGED from [com.android.support:support-v4:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\016df62262268f9133a655619ddfbcf8\transformed\support-v4-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\016df62262268f9133a655619ddfbcf8\transformed\support-v4-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\180c108531ab135ca23eb208703864c0\transformed\support-media-compat-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\180c108531ab135ca23eb208703864c0\transformed\support-media-compat-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\8f34d3c607ac1c7eef8b3f1020d83c95\transformed\support-fragment-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\8f34d3c607ac1c7eef8b3f1020d83c95\transformed\support-fragment-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\05c9deb4a1c08dea1b0514c10ae9350d\transformed\support-core-ui-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\05c9deb4a1c08dea1b0514c10ae9350d\transformed\support-core-ui-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\8cc871aab0a70e7593ed9ffc8c205696\transformed\support-core-utils-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\8cc871aab0a70e7593ed9ffc8c205696\transformed\support-core-utils-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:loader:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\102798a274086d2148d78f3109a9d10c\transformed\loader-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:loader:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\102798a274086d2148d78f3109a9d10c\transformed\loader-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:viewpager:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\2f4e98590812838fc5061b813e66f68b\transformed\viewpager-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:viewpager:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\2f4e98590812838fc5061b813e66f68b\transformed\viewpager-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\0a2c8ee4c4751eeb1a5b1493fa1c2a18\transformed\coordinatorlayout-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\0a2c8ee4c4751eeb1a5b1493fa1c2a18\transformed\coordinatorlayout-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\abd137af68b4341b8ce96662a703a80e\transformed\drawerlayout-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\abd137af68b4341b8ce96662a703a80e\transformed\drawerlayout-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\33ff133ad63535c4b51ac6f45fa87626\transformed\slidingpanelayout-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\33ff133ad63535c4b51ac6f45fa87626\transformed\slidingpanelayout-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:customview:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\c5c770ca10b48e0b219ccc4098d9ab73\transformed\customview-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:customview:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\c5c770ca10b48e0b219ccc4098d9ab73\transformed\customview-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\d737c6a46e586e7f5f9169b062ddce8d\transformed\swiperefreshlayout-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\d737c6a46e586e7f5f9169b062ddce8d\transformed\swiperefreshlayout-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\85dc63a2863842553073a52f67d6b755\transformed\asynclayoutinflater-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\85dc63a2863842553073a52f67d6b755\transformed\asynclayoutinflater-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\d6e77901167a513bc2e3a4d6cb7c3a9d\transformed\support-compat-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\d6e77901167a513bc2e3a4d6cb7c3a9d\transformed\support-compat-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\3f18b3f3d3b33f8828f741cfd9616820\transformed\versionedparcelable-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\3f18b3f3d3b33f8828f741cfd9616820\transformed\versionedparcelable-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\d415cb50bee612673942ae79fe6e9028\transformed\runtime-1.1.1\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\d415cb50bee612673942ae79fe6e9028\transformed\runtime-1.1.1\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:documentfile:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\4aa75a569e4f4190ba0bffc25facc09d\transformed\documentfile-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:documentfile:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\4aa75a569e4f4190ba0bffc25facc09d\transformed\documentfile-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\ca6118f7585257db07c952356f61970a\transformed\localbroadcastmanager-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\ca6118f7585257db07c952356f61970a\transformed\localbroadcastmanager-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:print:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\7e43025778ff2599736e0cc6acbd09bc\transformed\print-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:print:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\7e43025778ff2599736e0cc6acbd09bc\transformed\print-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:interpolator:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\16e1cc338e3aab10dac9344cba0d0332\transformed\interpolator-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:interpolator:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\16e1cc338e3aab10dac9344cba0d0332\transformed\interpolator-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\285c1a7315c3bf5a94f2e0ff16687bfe\transformed\cursoradapter-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\285c1a7315c3bf5a94f2e0ff16687bfe\transformed\cursoradapter-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\9767ed0c88fc750a9d0f57992c1a3958\transformed\viewmodel-1.1.1\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\9767ed0c88fc750a9d0f57992c1a3958\transformed\viewmodel-1.1.1\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\9be105d99cfcd028bc58d55b6f78adb8\transformed\livedata-1.1.1\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\9be105d99cfcd028bc58d55b6f78adb8\transformed\livedata-1.1.1\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\fdc9bfc80e1707c9ec676288b9f6cbf8\transformed\livedata-core-1.1.1\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\fdc9bfc80e1707c9ec676288b9f6cbf8\transformed\livedata-core-1.1.1\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.1] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\fe8e84acdba959f0d4ddcf6993f75b4a\transformed\runtime-1.1.1\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.1] C:\Users\yuwell\.gradle\caches\9.7.1\transforms\fe8e84acdba959f0d4ddcf6993f75b4a\transformed\runtime-1.1.1\AndroidManifest.xml:20:5-44
+INJECTED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml
+INJECTED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml
+MERGED from [com.android.support:support-v4:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/016df62262268f9133a655619ddfbcf8/transformed/support-v4-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/016df62262268f9133a655619ddfbcf8/transformed/support-v4-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/180c108531ab135ca23eb208703864c0/transformed/support-media-compat-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/180c108531ab135ca23eb208703864c0/transformed/support-media-compat-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/8f34d3c607ac1c7eef8b3f1020d83c95/transformed/support-fragment-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/8f34d3c607ac1c7eef8b3f1020d83c95/transformed/support-fragment-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/05c9deb4a1c08dea1b0514c10ae9350d/transformed/support-core-ui-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/05c9deb4a1c08dea1b0514c10ae9350d/transformed/support-core-ui-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/8cc871aab0a70e7593ed9ffc8c205696/transformed/support-core-utils-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/8cc871aab0a70e7593ed9ffc8c205696/transformed/support-core-utils-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/102798a274086d2148d78f3109a9d10c/transformed/loader-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/102798a274086d2148d78f3109a9d10c/transformed/loader-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/2f4e98590812838fc5061b813e66f68b/transformed/viewpager-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/2f4e98590812838fc5061b813e66f68b/transformed/viewpager-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/0a2c8ee4c4751eeb1a5b1493fa1c2a18/transformed/coordinatorlayout-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/0a2c8ee4c4751eeb1a5b1493fa1c2a18/transformed/coordinatorlayout-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/abd137af68b4341b8ce96662a703a80e/transformed/drawerlayout-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/abd137af68b4341b8ce96662a703a80e/transformed/drawerlayout-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/33ff133ad63535c4b51ac6f45fa87626/transformed/slidingpanelayout-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/33ff133ad63535c4b51ac6f45fa87626/transformed/slidingpanelayout-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/c5c770ca10b48e0b219ccc4098d9ab73/transformed/customview-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/c5c770ca10b48e0b219ccc4098d9ab73/transformed/customview-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/d737c6a46e586e7f5f9169b062ddce8d/transformed/swiperefreshlayout-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/d737c6a46e586e7f5f9169b062ddce8d/transformed/swiperefreshlayout-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/85dc63a2863842553073a52f67d6b755/transformed/asynclayoutinflater-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/85dc63a2863842553073a52f67d6b755/transformed/asynclayoutinflater-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/d6e77901167a513bc2e3a4d6cb7c3a9d/transformed/support-compat-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/d6e77901167a513bc2e3a4d6cb7c3a9d/transformed/support-compat-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/3f18b3f3d3b33f8828f741cfd9616820/transformed/versionedparcelable-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/3f18b3f3d3b33f8828f741cfd9616820/transformed/versionedparcelable-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/codespace/.gradle/caches/9.7.1/transforms/d415cb50bee612673942ae79fe6e9028/transformed/runtime-1.1.1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/codespace/.gradle/caches/9.7.1/transforms/d415cb50bee612673942ae79fe6e9028/transformed/runtime-1.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/4aa75a569e4f4190ba0bffc25facc09d/transformed/documentfile-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/4aa75a569e4f4190ba0bffc25facc09d/transformed/documentfile-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/ca6118f7585257db07c952356f61970a/transformed/localbroadcastmanager-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/ca6118f7585257db07c952356f61970a/transformed/localbroadcastmanager-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/7e43025778ff2599736e0cc6acbd09bc/transformed/print-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/7e43025778ff2599736e0cc6acbd09bc/transformed/print-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/16e1cc338e3aab10dac9344cba0d0332/transformed/interpolator-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/16e1cc338e3aab10dac9344cba0d0332/transformed/interpolator-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/285c1a7315c3bf5a94f2e0ff16687bfe/transformed/cursoradapter-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/codespace/.gradle/caches/9.7.1/transforms/285c1a7315c3bf5a94f2e0ff16687bfe/transformed/cursoradapter-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/codespace/.gradle/caches/9.7.1/transforms/9767ed0c88fc750a9d0f57992c1a3958/transformed/viewmodel-1.1.1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/codespace/.gradle/caches/9.7.1/transforms/9767ed0c88fc750a9d0f57992c1a3958/transformed/viewmodel-1.1.1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/codespace/.gradle/caches/9.7.1/transforms/9be105d99cfcd028bc58d55b6f78adb8/transformed/livedata-1.1.1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/codespace/.gradle/caches/9.7.1/transforms/9be105d99cfcd028bc58d55b6f78adb8/transformed/livedata-1.1.1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/codespace/.gradle/caches/9.7.1/transforms/fdc9bfc80e1707c9ec676288b9f6cbf8/transformed/livedata-core-1.1.1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/codespace/.gradle/caches/9.7.1/transforms/fdc9bfc80e1707c9ec676288b9f6cbf8/transformed/livedata-core-1.1.1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /home/codespace/.gradle/caches/9.7.1/transforms/fe8e84acdba959f0d4ddcf6993f75b4a/transformed/runtime-1.1.1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /home/codespace/.gradle/caches/9.7.1/transforms/fe8e84acdba959f0d4ddcf6993f75b4a/transformed/runtime-1.1.1/AndroidManifest.xml:20:5-44
 	android:targetSdkVersion
-		INJECTED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml
+		INJECTED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\yuwell\Desktop\andriod-apk-ble-main\andriod-apk-ble-main\Application\src\main\AndroidManifest.xml
+		INJECTED from /workspaces/andriod-apk-ble/Application/src/main/AndroidManifest.xml

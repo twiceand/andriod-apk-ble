@@ -17,6 +17,7 @@
 package com.example.android.bluetoothadvertisements;
 
 import android.os.ParcelUuid;
+import java.util.UUID;
 
 /**
  * Constants for use in the Bluetooth Advertisements sample
@@ -34,5 +35,12 @@ public class Constants {
             .fromString("0000b81d-0000-1000-8000-00805f9b34fb");
 
     public static final int REQUEST_ENABLE_BT = 1;
+
+    // OS Type Service and Characteristic UUIDs for device identification
+    public static final UUID OS_TYPE_SVC_UUID = UUID.fromString("6b1f0010-4c2a-4f7e-9d3b-5a8c1e2f7a10");
+    public static final UUID OS_TYPE_CHAR_UUID = UUID.fromString("6b1f0011-4c2a-4f7e-9d3b-5a8c1e2f7a10");
+
+    // OS Type value for Android devices
+    public static final byte OS_TYPE_ANDROID = 1;
 
 }

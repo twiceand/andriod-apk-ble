@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="scan_start">#2864DC</color>
+    <color name="scan_stop">#E88A23</color>
     <dimen name="horizontal_page_margin">@dimen/margin_medium</dimen>
     <dimen name="margin_huge">64dp</dimen>
     <dimen name="margin_large">32dp</dimen>
@@ -7,7 +9,7 @@
     <dimen name="margin_small">8dp</dimen>
     <dimen name="margin_tiny">4dp</dimen>
     <dimen name="vertical_page_margin">@dimen/margin_medium</dimen>
-    <string name="activity_main_title">附近的蓝牙设备</string>
+    <string name="activity_main_title">蓝牙扫描</string>
     <string name="advertising_notification_channel">蓝牙广播</string>
     <string name="advertising_notification_text">附近设备可以发现本机。</string>
     <string name="advertising_notification_title">正在进行蓝牙广播</string>

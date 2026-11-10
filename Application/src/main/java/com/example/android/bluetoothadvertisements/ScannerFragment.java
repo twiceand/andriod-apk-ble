@@ -75,6 +75,7 @@ public class ScannerFragment extends Fragment {
     private ProgressBar scanProgress;
     private boolean scanning;
     private boolean receiverRegistered;
+    private boolean bondReceiverRegistered;
     private int lastBluetoothState = Integer.MIN_VALUE;
     private int scanResultCount;
     private Runnable scanDiagnostic;
@@ -84,6 +85,41 @@ public class ScannerFragment extends Fragment {
         public void onReceive(Context context, Intent intent) {
             if (BluetoothAdapter.ACTION_STATE_CHANGED.equals(intent.getAction())) {
                 updateBluetoothState();
+            }
+        }
+    };
+
+    private final BroadcastReceiver bondStateReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (!BluetoothDevice.ACTION_BOND_STATE_CHANGED.equals(intent.getAction())) {
+                return;
+            }
+            BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+            if (device == null) {
+                return;
+            }
+            String id;
+            try {
+                id = device.getAddress();
+            } catch (SecurityException exception) {
+                log("无法读取配对设备地址：缺少蓝牙连接权限");
+                return;
+            }
+            if (!gattConnections.containsKey(id)) {
+                return;
+            }
+            int state = intent.getIntExtra(BluetoothDevice.EXTRA_BOND_STATE, BluetoothDevice.ERROR);
+            int previousState = intent.getIntExtra(
+                    BluetoothDevice.EXTRA_PREVIOUS_BOND_STATE, BluetoothDevice.ERROR);
+            if (state == BluetoothDevice.BOND_BONDING) {
+                log("设备 " + id + " 正在配对，请按系统提示操作");
+            } else if (state == BluetoothDevice.BOND_BONDED) {
+                log("设备 " + id + " 配对成功");
+            } else if (state == BluetoothDevice.BOND_NONE
+                    && previousState == BluetoothDevice.BOND_BONDING) {
+                log("设备 " + id + " 配对失败或已取消，请检查设备配对模式后重新连接");
+                showMessage("配对失败或已取消，请查看蓝牙事件日志。");
             }
         }
     };
@@ -119,6 +155,9 @@ public class ScannerFragment extends Fragment {
             }
         });
         view.findViewById(R.id.clear_logs).setOnClickListener(v -> clearLogs());
+        requireContext().registerReceiver(bondStateReceiver,
+                new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED));
+        bondReceiverRegistered = true;
         updateBluetoothState();
         return view;
     }
@@ -147,6 +186,10 @@ public class ScannerFragment extends Fragment {
     @Override
     public void onDestroyView() {
         stopScanning();
+        if (bondReceiverRegistered && getContext() != null) {
+            getContext().unregisterReceiver(bondStateReceiver);
+            bondReceiverRegistered = false;
+        }
         closeAllGattConnections();
         super.onDestroyView();
     }
@@ -445,7 +488,7 @@ public class ScannerFragment extends Fragment {
                         setConnectionState(id, DiscoveredDevice.ConnectionState.CONNECTED);
                         String name = getDeviceName(id);
                         log("已连接：" + name + " (" + id + ")");
-                        log("不会主动发起配对；等待设备端安全请求，由 Android 蓝牙栈处理配对和加密");
+                        requestPairing(gatt.getDevice(), id);
                         if (name.toLowerCase(Locale.ROOT).contains("zephyr")) {
                             log("Zephyr 设备 " + id + "：正在查找自定义安全状态服务");
                             try {
@@ -486,6 +529,10 @@ public class ScannerFragment extends Fragment {
                         log("设备 " + id + " 安全服务发现失败，状态码 " + status);
                         return;
                     }
+
+                    // Try to write OS type identifier (Android) to the device
+                    writeOsTypeIfAvailable(gatt, id);
+
                     BluetoothGattService service = gatt.getService(SECURITY_SERVICE_UUID);
                     if (service == null) {
                         log("设备 " + id + " 未提供自定义安全状态服务，无法读取外设报告的加密等级");
@@ -584,7 +631,39 @@ public class ScannerFragment extends Fragment {
                                              byte[] value, int status) {
                 handleSecurityStatus(id, characteristic, status, value);
             }
+
+            @Override
+            public void onCharacteristicWrite(BluetoothGatt gatt,
+                                              BluetoothGattCharacteristic characteristic,
+                                              int status) {
+                if (Constants.OS_TYPE_CHAR_UUID.equals(characteristic.getUuid())) {
+                    if (status == BluetoothGatt.GATT_SUCCESS) {
+                        log("设备 " + id + " OS 类型已成功写入（Android）");
+                    } else {
+                        log("设备 " + id + " OS 类型写入失败，状态码 " + status);
+                    }
+                }
+            }
         };
+    }
+
+    private void requestPairing(BluetoothDevice device, String id) {
+        try {
+            int state = device.getBondState();
+            if (state == BluetoothDevice.BOND_BONDED) {
+                log("设备 " + id + " 已配对，无需再次发起配对");
+            } else if (state == BluetoothDevice.BOND_BONDING) {
+                log("设备 " + id + " 正在配对，请按系统提示操作");
+            } else if (device.createBond()) {
+                log("设备 " + id + " 已发起配对请求，请按系统提示操作");
+            } else {
+                log("设备 " + id + " 配对请求未能启动，请检查设备配对模式后重新连接");
+                showMessage("配对请求未能启动，请查看蓝牙事件日志。");
+            }
+        } catch (SecurityException exception) {
+            log("设备 " + id + " 配对请求失败：缺少蓝牙连接权限");
+            showMessage("请授予蓝牙连接权限后重试。");
+        }
     }
 
     private void handleSecurityStatus(String id, BluetoothGattCharacteristic characteristic,
@@ -630,6 +709,41 @@ public class ScannerFragment extends Fragment {
                 "不允许配对", "参数无效", "密钥被拒绝", "未指定错误"
         };
         return code >= 0 && code < descriptions.length ? descriptions[code] : "未知错误";
+    }
+
+    private void writeOsTypeIfAvailable(BluetoothGatt gatt, String id) {
+        try {
+            BluetoothGattService service = gatt.getService(Constants.OS_TYPE_SVC_UUID);
+            if (service == null) {
+                return;
+            }
+
+            BluetoothGattCharacteristic ch = service.getCharacteristic(Constants.OS_TYPE_CHAR_UUID);
+            if (ch == null) {
+                return;
+            }
+
+            byte[] value = {Constants.OS_TYPE_ANDROID};
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                gatt.writeCharacteristic(ch, value, BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);
+            } else {
+                @SuppressWarnings("deprecation")
+                byte[] oldValue = ch.getValue();
+                ch.setValue(value);
+                ch.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);
+                @SuppressWarnings("deprecation")
+                boolean success = gatt.writeCharacteristic(ch);
+                if (!success) {
+                    log("设备 " + id + " OS 类型写入请求未能发送");
+                }
+            }
+            log("设备 " + id + " 正在写入 OS 类型（Android）...");
+        } catch (SecurityException exception) {
+            log("设备 " + id + " OS 类型写入失败：缺少蓝牙连接权限");
+        } catch (Exception exception) {
+            log("设备 " + id + " OS 类型写入异常：" + exception.getMessage());
+        }
     }
 
     private void scheduleConnectionTimeout(String id, BluetoothGatt gatt, String name) {

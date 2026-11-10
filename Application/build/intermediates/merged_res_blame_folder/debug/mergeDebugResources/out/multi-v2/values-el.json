@@ -4,7 +4,7 @@
             "outputFile": "com.example.android.bluetoothadvertisements.Application-mergeDebugResources-4:/values-el/values-el.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\yuwell\\.gradle\\caches\\9.7.1\\transforms\\d6e77901167a513bc2e3a4d6cb7c3a9d\\transformed\\support-compat-28.0.0\\res\\values-el\\values-el.xml",
+                    "source": "/home/codespace/.gradle/caches/9.7.1/transforms/d6e77901167a513bc2e3a4d6cb7c3a9d/transformed/support-compat-28.0.0/res/values-el/values-el.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

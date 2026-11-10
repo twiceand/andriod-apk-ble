@@ -4,7 +4,7 @@
             "outputFile": "com.example.android.bluetoothadvertisements.Application-mergeDebugResources-4:/values-sw600dp-v13/values-sw600dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\yuwell\\Desktop\\andriod-apk-ble-main\\andriod-apk-ble-main\\Application\\src\\main\\res\\values-sw600dp\\template-dimens.xml",
+                    "source": "/workspaces/andriod-apk-ble/Application/src/main/res/values-sw600dp/template-dimens.xml",
                     "from": {
                         "startLines": "20,21",
                         "startColumns": "4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\yuwell\\Desktop\\andriod-apk-ble-main\\andriod-apk-ble-main\\Application\\src\\main\\res\\values-sw600dp\\template-styles.xml",
+                    "source": "/workspaces/andriod-apk-ble/Application/src/main/res/values-sw600dp/template-styles.xml",
                     "from": {
                         "startLines": "18",
                         "startColumns": "4",

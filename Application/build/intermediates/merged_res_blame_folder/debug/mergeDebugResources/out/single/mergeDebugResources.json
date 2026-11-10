@@ -1,59 +1,55 @@
 [
     {
-        "merged": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-debug-6:\\layout_fragment_scanner.xml.flat",
-        "source": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-main-9:\\layout\\fragment_scanner.xml"
+        "merged": "com.example.android.bluetoothadvertisements.Application-debug-6:/drawable-xhdpi_ic_launcher.png.flat",
+        "source": "com.example.android.bluetoothadvertisements.Application-main-9:/drawable-xhdpi/ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-debug-6:\\drawable-xxhdpi_ic_action_refresh.png.flat",
-        "source": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-main-9:\\drawable-xxhdpi\\ic_action_refresh.png"
+        "merged": "com.example.android.bluetoothadvertisements.Application-debug-6:/layout_listitem_scanresult.xml.flat",
+        "source": "com.example.android.bluetoothadvertisements.Application-main-9:/layout/listitem_scanresult.xml"
     },
     {
-        "merged": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-debug-6:\\drawable-mdpi_ic_action_refresh.png.flat",
-        "source": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-main-9:\\drawable-mdpi\\ic_action_refresh.png"
+        "merged": "com.example.android.bluetoothadvertisements.Application-debug-6:/drawable-hdpi_tile.9.png.flat",
+        "source": "com.example.android.bluetoothadvertisements.Application-main-9:/drawable-hdpi/tile.9.png"
     },
     {
-        "merged": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-debug-6:\\drawable-hdpi_ic_action_refresh.png.flat",
-        "source": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-main-9:\\drawable-hdpi\\ic_action_refresh.png"
+        "merged": "com.example.android.bluetoothadvertisements.Application-debug-6:/drawable-xhdpi_ic_action_refresh.png.flat",
+        "source": "com.example.android.bluetoothadvertisements.Application-main-9:/drawable-xhdpi/ic_action_refresh.png"
     },
     {
-        "merged": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-debug-6:\\menu-v21_scanner_menu.xml.flat",
-        "source": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-main-9:\\menu-v21\\scanner_menu.xml"
+        "merged": "com.example.android.bluetoothadvertisements.Application-debug-6:/drawable-hdpi_ic_action_refresh.png.flat",
+        "source": "com.example.android.bluetoothadvertisements.Application-main-9:/drawable-hdpi/ic_action_refresh.png"
     },
     {
-        "merged": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-debug-6:\\drawable-xxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-main-9:\\drawable-xxhdpi\\ic_launcher.png"
+        "merged": "com.example.android.bluetoothadvertisements.Application-debug-6:/layout_activity_main.xml.flat",
+        "source": "com.example.android.bluetoothadvertisements.Application-main-9:/layout/activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-debug-6:\\drawable-hdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-main-9:\\drawable-hdpi\\ic_launcher.png"
+        "merged": "com.example.android.bluetoothadvertisements.Application-debug-6:/drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "com.example.android.bluetoothadvertisements.Application-main-9:/drawable-xxhdpi/ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-debug-6:\\drawable-xhdpi_ic_action_refresh.png.flat",
-        "source": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-main-9:\\drawable-xhdpi\\ic_action_refresh.png"
+        "merged": "com.example.android.bluetoothadvertisements.Application-debug-6:/drawable-xxhdpi_ic_action_refresh.png.flat",
+        "source": "com.example.android.bluetoothadvertisements.Application-main-9:/drawable-xxhdpi/ic_action_refresh.png"
     },
     {
-        "merged": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-debug-6:\\drawable-hdpi_tile.9.png.flat",
-        "source": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-main-9:\\drawable-hdpi\\tile.9.png"
+        "merged": "com.example.android.bluetoothadvertisements.Application-debug-6:/drawable-hdpi_ic_launcher.png.flat",
+        "source": "com.example.android.bluetoothadvertisements.Application-main-9:/drawable-hdpi/ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-debug-6:\\drawable-mdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-main-9:\\drawable-mdpi\\ic_launcher.png"
+        "merged": "com.example.android.bluetoothadvertisements.Application-debug-6:/drawable-mdpi_ic_launcher.png.flat",
+        "source": "com.example.android.bluetoothadvertisements.Application-main-9:/drawable-mdpi/ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-debug-6:\\layout_fragment_advertiser.xml.flat",
-        "source": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-main-9:\\layout\\fragment_advertiser.xml"
+        "merged": "com.example.android.bluetoothadvertisements.Application-debug-6:/layout_fragment_advertiser.xml.flat",
+        "source": "com.example.android.bluetoothadvertisements.Application-main-9:/layout/fragment_advertiser.xml"
     },
     {
-        "merged": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-debug-6:\\drawable-xhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-main-9:\\drawable-xhdpi\\ic_launcher.png"
+        "merged": "com.example.android.bluetoothadvertisements.Application-debug-6:/drawable-mdpi_ic_action_refresh.png.flat",
+        "source": "com.example.android.bluetoothadvertisements.Application-main-9:/drawable-mdpi/ic_action_refresh.png"
     },
     {
-        "merged": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-debug-6:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-main-9:\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-debug-6:\\layout_listitem_scanresult.xml.flat",
-        "source": "C:\\Users\\yuwell\\.gradle\\daemon\\9.7.1\\com.example.android.bluetoothadvertisements.Application-main-9:\\layout\\listitem_scanresult.xml"
+        "merged": "com.example.android.bluetoothadvertisements.Application-debug-6:/menu-v21_scanner_menu.xml.flat",
+        "source": "com.example.android.bluetoothadvertisements.Application-main-9:/menu-v21/scanner_menu.xml"
     },
     {
         "merged": "com.example.android.bluetoothadvertisements.Application-debug-6:/layout_fragment_scanner.xml.flat",

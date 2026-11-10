@@ -6,6 +6,8 @@
     <color name="notification_material_background_media_default_color">#ff424242</color>
     <color name="primary_text_default_material_dark">#ffffffff</color>
     <color name="ripple_material_light">#1f000000</color>
+    <color name="scan_start">#2864DC</color>
+    <color name="scan_stop">#E88A23</color>
     <color name="secondary_text_default_material_dark">#b3ffffff</color>
     <color name="secondary_text_default_material_light">#8a000000</color>
     <dimen name="compat_button_inset_horizontal_material">4dp</dimen>
@@ -53,7 +55,7 @@
     <item name="title" type="id"/>
     <integer name="cancel_button_image_alpha">127</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
-    <string name="activity_main_title">附近的蓝牙设备</string>
+    <string name="activity_main_title">蓝牙扫描</string>
     <string name="advertising_notification_channel">蓝牙广播</string>
     <string name="advertising_notification_text">附近设备可以发现本机。</string>
     <string name="advertising_notification_title">正在进行蓝牙广播</string>

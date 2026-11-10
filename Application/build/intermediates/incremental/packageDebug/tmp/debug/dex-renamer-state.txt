@@ -1,8 +1,8 @@
-#Tue Nov 10 11:38:50 CST 2026
-base.0=C\:\\Users\\yuwell\\Desktop\\andriod-apk-ble-main\\andriod-apk-ble-main\\Application\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=C\:\\Users\\yuwell\\Desktop\\andriod-apk-ble-main\\andriod-apk-ble-main\\Application\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.2=C\:\\Users\\yuwell\\Desktop\\andriod-apk-ble-main\\andriod-apk-ble-main\\Application\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\9\\classes.dex
-base.3=C\:\\Users\\yuwell\\Desktop\\andriod-apk-ble-main\\andriod-apk-ble-main\\Application\\build\\intermediates\\global_synthetics_dex\\debug\\generateDebugGlobalSynthetics\\classes.dex
+#Tue Nov 10 15:26:52 UTC 2026
+base.0=/workspaces/andriod-apk-ble/Application/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+base.1=/workspaces/andriod-apk-ble/Application/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.2=/workspaces/andriod-apk-ble/Application/build/intermediates/dex/debug/mergeProjectDexDebug/9/classes.dex
+base.3=/workspaces/andriod-apk-ble/Application/build/intermediates/global_synthetics_dex/debug/generateDebugGlobalSynthetics/classes.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=9/classes.dex
