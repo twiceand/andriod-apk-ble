@@ -48,6 +48,7 @@ import java.util.UUID;
 
 public class ScannerFragment extends Fragment {
     private static final long CONNECTION_TIMEOUT_MS = 20_000L;
+    private static final int AD_TYPE_PUBLIC_TARGET_ADDRESS = 0x17;
     private static final UUID SECURITY_SERVICE_UUID =
             UUID.fromString("6B1F0001-4C2A-4F7E-9D3B-5A8C1E2F7A10");
     private static final UUID SECURITY_STATUS_UUID =
@@ -389,6 +390,10 @@ public class ScannerFragment extends Fragment {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 connectable = result.isConnectable();
             }
+            android.bluetooth.le.ScanRecord scanRecord = result.getScanRecord();
+            byte[] rawRecord = scanRecord == null ? null : scanRecord.getBytes();
+            boolean bindingDataUnavailable = rawRecord == null;
+            BindingAddressResult bindingAddress = parseBindingAddress(rawRecord);
 
             String id = device.getAddress();
             DiscoveredDevice existing = discoveredDevices.get(id);
@@ -402,7 +407,8 @@ public class ScannerFragment extends Fragment {
                     ? DiscoveredDevice.ConnectionState.DISCONNECTED
                     : existing.connectionState;
             discoveredDevices.put(id, new DiscoveredDevice(device, name, result.getRssi(),
-                    System.currentTimeMillis(), connectable, state));
+                    System.currentTimeMillis(), connectable, bindingAddress.address,
+                    bindingAddress.invalid, bindingDataUnavailable, state));
             refreshDeviceList();
             if (statusMessage != null) {
                 statusMessage.setVisibility(View.GONE);
@@ -434,23 +440,18 @@ public class ScannerFragment extends Fragment {
                     log("无法连接 " + device.name + "：" + id + " 的广播不可连接");
                     return;
                 }
-                setConnectionState(id, DiscoveredDevice.ConnectionState.CONNECTING);
-                log("正在连接 " + device.name + " (" + id + ")");
-                try {
-                    BluetoothGatt gatt = device.device.connectGatt(
-                            getContext(), false, createGattCallback(id));
-                    if (gatt == null) {
-                        setConnectionState(id, DiscoveredDevice.ConnectionState.DISCONNECTED);
-                        showNotice("无法启动 BLE 连接。");
-                        log("连接启动失败：" + device.name + " (" + id + ")");
-                        return;
-                    }
-                    gattConnections.put(id, gatt);
-                    scheduleConnectionTimeout(id, gatt, device.name);
-                } catch (SecurityException exception) {
-                    setConnectionState(id, DiscoveredDevice.ConnectionState.DISCONNECTED);
-                    showMessage("请授予蓝牙连接权限后重试。");
-                    log("连接失败：" + device.name + " (" + id + ")，缺少蓝牙权限");
+                if (device.bindingDataUnavailable || device.invalidBindingData) {
+                    showNotice(device.bindingDataUnavailable
+                            ? "未能读取设备广播数据，无法判断绑定状态。"
+                            : "设备广播中的绑定信息格式无效，无法判断绑定状态。");
+                    log("无法连接 " + device.name + "：" + id + " 的绑定信息不可用或格式无效");
+                    return;
+                }
+                if (device.boundPhonePublicAddress == null) {
+                    log("设备 " + id + " 广播未包含绑定地址，开始连接并请求配对");
+                    connectToDevice(device, true);
+                } else {
+                    connectToDevice(device, false);
                 }
                 break;
             case CONNECTING:
@@ -473,7 +474,29 @@ public class ScannerFragment extends Fragment {
         }
     }
 
-    private BluetoothGattCallback createGattCallback(String id) {
+    private void connectToDevice(DiscoveredDevice device, boolean requestPairing) {
+        String id = device.id;
+        setConnectionState(id, DiscoveredDevice.ConnectionState.CONNECTING);
+        log("正在连接 " + device.name + " (" + id + ")");
+        try {
+            BluetoothGatt gatt = device.device.connectGatt(
+                    getContext(), false, createGattCallback(id, requestPairing));
+            if (gatt == null) {
+                setConnectionState(id, DiscoveredDevice.ConnectionState.DISCONNECTED);
+                showNotice("无法启动 BLE 连接。");
+                log("连接启动失败：" + device.name + " (" + id + ")");
+                return;
+            }
+            gattConnections.put(id, gatt);
+            scheduleConnectionTimeout(id, gatt, device.name);
+        } catch (SecurityException exception) {
+            setConnectionState(id, DiscoveredDevice.ConnectionState.DISCONNECTED);
+            showMessage("请授予蓝牙连接权限后重试。");
+            log("连接失败：" + device.name + " (" + id + ")，缺少蓝牙权限");
+        }
+    }
+
+    private BluetoothGattCallback createGattCallback(String id, boolean requestPairing) {
         return new BluetoothGattCallback() {
             @Override
             public void onConnectionStateChange(BluetoothGatt gatt, int status, int newState) {
@@ -488,7 +511,9 @@ public class ScannerFragment extends Fragment {
                         setConnectionState(id, DiscoveredDevice.ConnectionState.CONNECTED);
                         String name = getDeviceName(id);
                         log("已连接：" + name + " (" + id + ")");
-                        requestPairing(gatt.getDevice(), id);
+                        if (requestPairing) {
+                            requestPairing(gatt.getDevice(), id);
+                        }
                         if (name.toLowerCase(Locale.ROOT).contains("zephyr")) {
                             log("Zephyr 设备 " + id + "：正在查找自定义安全状态服务");
                             try {
@@ -503,6 +528,8 @@ public class ScannerFragment extends Fragment {
                             || newState == BluetoothProfile.STATE_DISCONNECTED) {
                         boolean wasConnecting = getConnectionState(id)
                                 == DiscoveredDevice.ConnectionState.CONNECTING;
+                        boolean wasConnected = getConnectionState(id)
+                                == DiscoveredDevice.ConnectionState.CONNECTED;
                         boolean wasDisconnecting = getConnectionState(id)
                                 == DiscoveredDevice.ConnectionState.DISCONNECTING;
                         cancelConnectionTimeout(id);
@@ -514,12 +541,21 @@ public class ScannerFragment extends Fragment {
                                         + ")，状态码 " + status);
                         closeGatt(id, gatt);
                         if (wasConnecting) {
-                            showNotice("连接失败，状态码：" + status);
-                        } else if (!wasDisconnecting && status != BluetoothGatt.GATT_SUCCESS) {
-                            showNotice("连接已断开，状态码：" + status);
+                            showNotice(connectionErrorMessage("连接失败", status));
+                        } else if (!wasDisconnecting
+                                && (wasConnected || status != BluetoothGatt.GATT_SUCCESS)) {
+                            showNotice(connectionErrorMessage("连接已断开", status));
                         }
                     }
                 });
+            }
+
+            private String connectionErrorMessage(String message, int status) {
+                String errorMessage = message + "，错误码：" + status;
+                if (status == 22) {
+                    errorMessage += "。请按设备上的配对按键进入配对模式后重试。";
+                }
+                return errorMessage;
             }
 
             @Override
@@ -645,6 +681,69 @@ public class ScannerFragment extends Fragment {
                 }
             }
         };
+    }
+
+    private BindingAddressResult parseBindingAddress(byte[] record) {
+        if (record == null) {
+            return new BindingAddressResult(null, false);
+        }
+        List<String> addresses = new ArrayList<>();
+        for (int index = 0; index < record.length; ) {
+            int fieldLength = record[index] & 0xff;
+            if (fieldLength == 0) {
+                break;
+            }
+            int fieldEnd = index + fieldLength + 1;
+            if (fieldEnd > record.length) {
+                return new BindingAddressResult(null, true);
+            }
+            int fieldType = record[index + 1] & 0xff;
+            if (fieldType == AD_TYPE_PUBLIC_TARGET_ADDRESS) {
+                int addressDataLength = fieldLength - 1;
+                if (addressDataLength < 6 || addressDataLength % 6 != 0) {
+                    return new BindingAddressResult(null, true);
+                }
+                for (int addressStart = index + 2; addressStart < fieldEnd;
+                     addressStart += 6) {
+                    String forward = formatPublicAddress(record, addressStart, false);
+                    String reversed = formatPublicAddress(record, addressStart, true);
+                    addresses.add(forward.equals(reversed) ? forward
+                            : "大端 " + forward + " / 小端 " + reversed);
+                }
+            }
+            index = fieldEnd;
+        }
+        StringBuilder addressList = new StringBuilder();
+        for (String address : addresses) {
+            if (addressList.length() > 0) {
+                addressList.append("，");
+            }
+            addressList.append(address);
+        }
+        return new BindingAddressResult(addressList.length() == 0 ? null
+                : addressList.toString(), false);
+    }
+
+    private String formatPublicAddress(byte[] record, int start, boolean reverse) {
+        StringBuilder formatted = new StringBuilder(17);
+        for (int i = 0; i < 6; i++) {
+            if (i > 0) {
+                formatted.append(':');
+            }
+            int byteIndex = start + (reverse ? 5 - i : i);
+            formatted.append(String.format(Locale.ROOT, "%02X", record[byteIndex] & 0xff));
+        }
+        return formatted.toString();
+    }
+
+    private static final class BindingAddressResult {
+        final String address;
+        final boolean invalid;
+
+        BindingAddressResult(String address, boolean invalid) {
+            this.address = address;
+            this.invalid = invalid;
+        }
     }
 
     private void requestPairing(BluetoothDevice device, String id) {

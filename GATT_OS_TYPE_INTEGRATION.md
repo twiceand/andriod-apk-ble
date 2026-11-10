@@ -2,9 +2,13 @@
 
 ## 概述
 
-BLE 连接成功后，应用主动请求系统配对；已配对或正在配对的设备不会重复请求。系统异步完成配对，并可能要求用户确认或输入 PIN。连接成功并不等于配对成功，也不保证弹窗一定出现。
+未绑定设备点击后立即连接，并在连接成功后请求系统配对；已配对或正在配对的设备不会重复请求。若连接返回错误码 22，弹窗提示用户按设备配对键进入配对模式后重试。系统异步完成配对，并可能要求用户确认或输入 PIN。连接成功并不等于配对成功，也不保证弹窗一定出现。
 
 现有逻辑仅对名称包含 `zephyr` 的设备发起服务发现，发现 OS Type 服务后尝试写入 Android OS 类型标识符。配对请求先于服务发现及 OS 类型写入；二者异步进行，不保证 OS 类型先于配对送达外设。
+
+扫描列表从广播原始 AD 结构查找 `len=7, type=0x17` 的 Public Target Address，取其后 6 字节作为绑定手机 public 地址。例如 `07 17 12 34 56 78 90 12`。地址可能以大端或小端编码；仅凭这 6 字节无法判定发送端的字节序，因此界面同时显示两种解释：此示例显示“大端 `12:34:56:78:90:12` / 小端 `12:90:78:56:34:12`”。若没有 `0x17` 字段，显示“未绑定状态”；长度错误或 AD 字段截断时显示“绑定信息无效”，不会误认为未绑定。App 不会读取或校验 Android 手机自身的蓝牙 public address。
+
+未绑定设备被点击时，App 立即开始连接，并在连接成功后请求系统配对；错误码 22 会提示用户按设备上的配对按键进入配对模式后重试。广播包含 `0x17` 地址时直接连接，不主动请求配对。当前 `AdvertiserService` 只广播 Service UUID，并未生成或发送 Public Target Address，因此需要发送该地址的外设自行实现上述 AD 字段。
 
 ## 实现细节
 
@@ -124,13 +128,18 @@ private void writeOsTypeIfAvailable(BluetoothGatt gatt, String id) {
 ```
 1. 用户在 UI 上点击设备
    ↓
-2. ScannerFragment.toggleConnection() 被触发
+2. ScannerFragment 解析原始广播 AD 结构中的 `len=7, type=0x17`
+   ├─→ 无地址 → 显示“未绑定状态”
+   └─→ 有地址 → 显示绑定地址
    ↓
-3. 调用 BluetoothDevice.connectGatt()
+3. 点击设备后调用 BluetoothDevice.connectGatt()
    ↓
 4. onConnectionStateChange() 回调
-   ├─→ 状态 = CONNECTED → 检查配对状态并按需调用 createBond()
-   └─→ Zephyr 设备 → 调用 gatt.discoverServices()
+   ├─→ 未绑定 → 检查配对状态并按需调用 createBond()
+   ├─→ 已绑定 → 不再主动请求配对
+   └─→ 错误码 22 → 弹窗提示用户按设备配对按键进入配对模式
+   ↓
+   Zephyr 设备 → 调用 gatt.discoverServices()
    ↓
 5. onServicesDiscovered() 回调
    ├─→ 调用 writeOsTypeIfAvailable()
@@ -144,7 +153,7 @@ private void writeOsTypeIfAvailable(BluetoothGatt gatt, String id) {
 
 配对通过 `ACTION_BOND_STATE_CHANGED` 异步报告进行中、成功以及失败或取消。
 请求无法启动或缺少权限时，应用会显示提示并记录日志；不会自动断开或重试。
-系统配对期间应用可能暂停，配对状态监听会保持到界面销毁。
+系统配对期间应用可能暂停，配对状态监听会保持到界面销毁。绑定地址字段必须由外设提供；当前 Android 广播端没有填充该字段。
 
 ## API 兼容性
 
@@ -172,6 +181,7 @@ private void writeOsTypeIfAvailable(BluetoothGatt gatt, String id) {
 
 ```
 10:50:30  发现设备：MyDevice (AA:BB:CC:DD:EE:FF)，信号 -60 dBm
+10:50:31  设备 AA:BB:CC:DD:EE:FF 广播未包含绑定地址，等待用户按设备配对键
 10:50:35  正在连接 MyDevice (AA:BB:CC:DD:EE:FF)
 10:50:36  已连接：MyDevice (AA:BB:CC:DD:EE:FF)
 10:50:36  设备 AA:BB:CC:DD:EE:FF 已发起配对请求，请按系统提示操作
@@ -197,10 +207,12 @@ private void writeOsTypeIfAvailable(BluetoothGatt gatt, String id) {
 
 ### 真机测试
 1. 连接未配对设备，确认系统收到配对请求并按提示完成配对。
-2. 重新连接已配对设备，确认不会重复发起配对。
-3. 取消配对或让外设拒绝配对，确认日志报告失败或取消。
-4. 使用配有 OS Type 服务的 Zephyr 蓝牙设备，观察设备端是否接收到标识符。
-5. 验证后续数据传输是否正常。
+2. 测试无绑定地址的广播，确认点击后立即连接并请求配对；错误码 22 时确认弹窗提示按设备配对键。
+3. 广播 `07 17 12 34 56 78 90 12`，确认正序和反序地址均显示且点击不主动请求配对。
+4. 测试没有 `0x17` 字段、地址长度错误或字段截断，确认状态显示正确且无效数据不会误显示为未绑定。
+5. 取消配对或让外设拒绝配对，确认日志报告失败或取消。
+6. 使用配有 OS Type 服务的 Zephyr 蓝牙设备，观察设备端是否接收到标识符。
+7. 验证后续数据传输是否正常。
 
 ## 修改总结
 

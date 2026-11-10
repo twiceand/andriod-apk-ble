@@ -16,6 +16,7 @@ drawable ic_action_refresh
 drawable ic_launcher
 drawable tile
 id advertise_switch
+id binding_status
 id bluetooth_status
 id clear_logs
 id connection_state

@@ -14,6 +14,7 @@ int drawable ic_action_refresh 0x0
 int drawable ic_launcher 0x0
 int drawable tile 0x0
 int id advertise_switch 0x0
+int id binding_status 0x0
 int id bluetooth_status 0x0
 int id clear_logs 0x0
 int id connection_state 0x0

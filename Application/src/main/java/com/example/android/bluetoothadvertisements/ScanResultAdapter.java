@@ -65,6 +65,16 @@ public class ScanResultAdapter extends BaseAdapter {
         ((TextView) view.findViewById(R.id.device_address)).setText(device.id);
         ((TextView) view.findViewById(R.id.signal_strength))
                 .setText(device.rssi + " dBm · 最近发现 " + timeSince(device.lastSeen));
+        TextView bindingStatus = view.findViewById(R.id.binding_status);
+        if (device.bindingDataUnavailable) {
+            bindingStatus.setText("绑定信息不可用");
+        } else if (device.invalidBindingData) {
+            bindingStatus.setText("绑定信息无效");
+        } else if (device.boundPhonePublicAddress == null) {
+            bindingStatus.setText("未绑定状态");
+        } else {
+            bindingStatus.setText("绑定手机 public 地址：" + device.boundPhonePublicAddress);
+        }
         ((TextView) view.findViewById(R.id.connection_state))
                 .setText(connectionDescription(device));
         return view;
