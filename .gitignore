@@ -1,0 +1,53 @@
+# Local environment configuration (SDK paths, API keys, etc.)
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+*.class
+
+# Build directories
+build/
+.gradle/
+*.apk
+*.ap_
+*.dex
+*.class
+
+# Gradle generated files
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+
+# Android specific
+bin/
+gen/
+proguard/
+proguard_logs/
+*.log
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Output files
+out/
+*.jar
+*.zip
+
+# Firebase
+google-services.json

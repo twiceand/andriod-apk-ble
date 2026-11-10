@@ -4,7 +4,24 @@
             "outputFile": "com.example.android.bluetoothadvertisements.Application-mergeDebugResources-4:/values-sw600dp-v13/values-sw600dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\weeks\\AndroidStudioProjects\\BluetoothAdvertisements\\Application\\src\\main\\res\\values-sw600dp\\template-styles.xml",
+                    "source": "/workspaces/andriod-apk-ble/Application/src/main/res/values-sw600dp/template-dimens.xml",
+                    "from": {
+                        "startLines": "20,21",
+                        "startColumns": "4,4",
+                        "startOffsets": "656,724",
+                        "endColumns": "67,67",
+                        "endOffsets": "719,787"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,123",
+                        "endColumns": "67,67",
+                        "endOffsets": "118,186"
+                    }
+                },
+                {
+                    "source": "/workspaces/andriod-apk-ble/Application/src/main/res/values-sw600dp/template-styles.xml",
                     "from": {
                         "startLines": "18",
                         "startColumns": "4",
@@ -20,23 +37,6 @@
                         "endLines": "8",
                         "endColumns": "12",
                         "endOffsets": "431"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\weeks\\AndroidStudioProjects\\BluetoothAdvertisements\\Application\\src\\main\\res\\values-sw600dp\\template-dimens.xml",
-                    "from": {
-                        "startLines": "20,21",
-                        "startColumns": "4,4",
-                        "startOffsets": "656,724",
-                        "endColumns": "67,67",
-                        "endOffsets": "719,787"
-                    },
-                    "to": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,123",
-                        "endColumns": "67,67",
-                        "endOffsets": "118,186"
                     }
                 }
             ]
